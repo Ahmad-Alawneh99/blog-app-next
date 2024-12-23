@@ -39,7 +39,7 @@ export default function SignUpForm() {
         const registerResponse = await registerUser(formData);
 
         if (registerResponse.success) {
-          router.push('../');
+          router.back();
           router.refresh();
         } else {
           setError({

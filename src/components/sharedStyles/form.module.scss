@@ -57,9 +57,11 @@
 	outline: none;
 	width: 280px;
 
-	&:hover {
-		cursor: pointer;
-		background-color: rgb(21, 95, 255);
+	@media (hover) {
+		&:hover {
+			cursor: pointer;
+			background-color: rgb(21, 95, 255);
+		}
 	}
 
 	&:focus-within {

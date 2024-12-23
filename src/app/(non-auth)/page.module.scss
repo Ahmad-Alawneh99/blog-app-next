@@ -1,0 +1,43 @@
+.pageContainer {
+	margin: 128px auto 48px;
+	max-width: 1520px;
+	padding-inline: 16px;
+}
+
+.title {
+	font-size: 36px;
+	color: #333;
+	margin-bottom: 8px;
+}
+
+.subtitle {
+	color: #333;
+}
+
+.createBlogLink {
+	align-items: center;
+	background-color: rgb(50, 115, 255);
+	border-radius: 8px;
+	border: none;
+	color: white;
+	display: flex;
+	font-size: 14px;
+	font-weight: bold;
+	height: 36px;
+	justify-content: center;
+	outline: none;
+	text-decoration: none;
+	width: 142px;
+	margin-bottom: 16px;
+
+	@media (hover) {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	&:focus-within {
+		outline-offset: 2px;
+		outline: 1px solid black;
+	}
+}

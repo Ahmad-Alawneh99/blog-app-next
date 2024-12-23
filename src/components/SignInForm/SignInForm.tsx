@@ -43,7 +43,7 @@ export default function SignInForm() {
         const signInResponse = await signIn(formData);
 
         if (signInResponse.success) {
-          router.push('../');
+          router.back();
           router.refresh();
 
         } else {

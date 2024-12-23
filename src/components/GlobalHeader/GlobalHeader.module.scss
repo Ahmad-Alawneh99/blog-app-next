@@ -12,6 +12,7 @@
 
 .greetings {
 	margin: 0;
+	color: #333
 }
 
 .signOutButton {
@@ -35,13 +36,13 @@
 
 	@media (hover) {
 		&:hover {
-			color: black;
+			color: #333;
 		}
 	}
 }
 
 .title {
-	color: black;
+	color: #333;
 	margin: 0;
 }
 

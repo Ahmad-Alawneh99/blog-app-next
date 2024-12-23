@@ -1,3 +1,4 @@
+import Error from "../../../../../components/Error/Error";
 import BlogForm from "../../../../../components/BlogForm/BlogForm";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -15,9 +16,12 @@ export default async function EditBlogPage({ params }: EditBlogPage) {
 
   const blogResponseData = await blogResponse.json();
 
-  // @PENDING: redirect to login if logged out, display an error if 403
-  if (!blogResponseData.success) {
+  if (blogResponseData.status === 401) {
     return redirect('/sign-in');
+  }
+
+  if (!blogResponseData.success) {
+    return <Error title={`Oh no! ${blogResponseData.status}!`} message={blogResponseData.message}/>
   }
 
   return <BlogForm blogToUpdate={blogResponseData.blog} />

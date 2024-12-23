@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import GlobalHeader from "../../components/GlobalHeader/GlobalHeader";
+import UserContextProvider from "../../shared/UserContextProvider";
 
 export default async function Layout({ children }: { children: React.ReactNode}) {
   const cookieStore = await cookies();
@@ -12,8 +13,10 @@ export default async function Layout({ children }: { children: React.ReactNode})
 
   return (
     <>
-      <GlobalHeader user={userResponseData.user}/>
-      {children}
+      <UserContextProvider user={userResponseData.user}>
+        <GlobalHeader />
+        {children}
+      </UserContextProvider>
     </>
   );
 }

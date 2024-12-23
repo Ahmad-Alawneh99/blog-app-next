@@ -78,3 +78,16 @@ export async function updateBlog(blogData: Partial<Blog>) {
 
   return updateBlogResponse.json();
 }
+
+export async function deleteBlog(blogId: string) {
+  const cookieStore = await cookies();
+  const updateBlogResponse = await fetch(`${process.env.BACKEND_API}/blogs/${blogId}`, {
+    method: 'DELETE',
+    headers: {
+      Cookie: cookieStore.toString(),
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return updateBlogResponse.json();
+}

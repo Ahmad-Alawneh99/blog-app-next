@@ -65,7 +65,11 @@ export default function BlogForm({ blogToUpdate }: BlogFormProps) {
         }
 
         if (response.success) {
-          router.push('/profile');
+          if (blogToUpdate) {
+            router.back();
+          } else {
+            router.push('/profile');
+          }
           router.refresh();
         } else {
           setError({

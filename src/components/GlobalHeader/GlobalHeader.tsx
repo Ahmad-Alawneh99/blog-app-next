@@ -1,20 +1,16 @@
 'use client'
 import Link from 'next/link';
-import { User } from '../../shared/interfaces';
 import style from './GlobalHeader.module.scss';
 import { useRouter } from 'next/navigation';
+import { useContext } from 'react';
+import { UserContext } from '../../shared/UserContext';
 
-interface GlobalHeaderProps {
-    user?: User;
-}
-
-export default function GlobalHeader({ user }: GlobalHeaderProps) {
+export default function GlobalHeader() {
+  const user = useContext(UserContext);
   const router = useRouter();
 
   async function handleSignOut() {
-    document.cookie = 'blog_app_token=';
-
-    router.push('/');
+    document.cookie = 'blog_app_token=;path=/';
     router.refresh();
   }
 

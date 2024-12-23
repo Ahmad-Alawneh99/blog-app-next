@@ -1,0 +1,101 @@
+.container {
+	color: #333;
+}
+
+.ownerActions {
+	align-items: center;
+	display: flex;
+	gap: 8px;
+	margin-bottom: 8px;
+
+	p {
+		margin: 0;
+		font-weight: bold;
+	}
+}
+
+.editLink,
+.deleteButton {
+	align-items: center;
+	border-radius: 8px;
+	border: none;
+	color: white;
+	display: flex;
+	font-size: 12px;
+	font-weight: bold;
+	height: 32px;
+	justify-content: center;
+	outline: none;
+	text-decoration: none;
+	width: 78px;
+
+	@media (hover) {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	&:focus-within {
+		outline-offset: 2px;
+		outline: 1px solid black;
+	}
+}
+
+.editLink {
+	background-color: rgb(50, 115, 255);
+
+	@media (hover) {
+		&:hover {
+			background-color: rgb(21, 95, 255);
+		}
+	}
+}
+
+.deleteButton {
+	background-color: rgb(250, 31, 31);
+
+	&:disabled {
+		background-color: lightgray;
+		color: gray;
+		pointer-events: none;
+	}
+
+	@media (hover) {
+		&:hover {
+			background-color: rgb(218, 17, 17);
+		}
+	}
+}
+
+.error {
+	color: red;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0;
+}
+
+.title {
+	border-bottom: 1px solid lightgray;
+	font-size: 38px;
+	font-weight: bold;
+	margin-block: 0 16px;
+	padding-bottom: 8px;
+}
+
+.authorByline {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0;
+}
+
+.date {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.content {
+	border-top: 1px solid lightgray;
+	font-size: 16px;
+	padding-top: 8px;
+	white-space: pre-wrap;
+}
