@@ -5,12 +5,12 @@ import {
   useState,
   useTransition,
 } from 'react';
-import { DateTime } from 'luxon';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Blog } from '../../shared/interfaces';
 import { UserContext } from '../../shared/UserContext';
 import { deleteBlog } from '../../app/actions';
+import DateView from '../DateView/DateView';
 import styles from './BlogView.module.scss';
 
 interface BlowViewProps {
@@ -58,8 +58,8 @@ export default function BlogView({ blog }: BlowViewProps) {
       { error && !isPending && <p className={styles.error}>{error}</p>}
       <p className={styles.title}>{blog.title}</p>
       <p className={styles.authorByline}>By {blog.owner.name}</p>
-      <p className={styles.date}>Published on {DateTime.fromISO(blog.createdAt).toFormat('dd/MM/yyyy hh:mm a')}</p>
-      { blog.createdAt !== blog.updatedAt && <p className={styles.date}>Updated on {DateTime.fromISO(blog.updatedAt).toFormat('dd/MM/yyyy hh:mm a')}</p> }
+      <DateView text="Published on " dateString={blog.createdAt} />
+      { blog.createdAt !== blog.updatedAt && <DateView text="Updated on " dateString={blog.updatedAt} /> }
       <p className={styles.content}>{blog.content}</p>
     </div>
   );

@@ -1,0 +1,10 @@
+.date {
+	color: #333;
+	font-size: 14px;
+	font-weight: bold;
+	margin-block: 8px;
+
+	&:last-of-type {
+		margin-top: 0;
+	}
+}
