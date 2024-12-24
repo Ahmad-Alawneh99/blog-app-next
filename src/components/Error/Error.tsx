@@ -6,12 +6,12 @@ interface ErrorProps {
   message: string;
 }
 
-export default async function Error({ title, message }: ErrorProps) {
+export default function Error({ title, message }: ErrorProps) {
   return (
     <div className={styles.container}>
       <p className={styles.title}>{title}</p>
       <p className={styles.message}>{message}</p>
-      <Link href='/' className={styles.link}>Back to home page</Link>
+      <Link href="/" className={styles.link}>Back to home page</Link>
     </div>
-  )
+  );
 }

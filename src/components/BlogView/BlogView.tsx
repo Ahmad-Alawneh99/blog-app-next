@@ -1,12 +1,17 @@
-'use client'
-import { useCallback, useContext, useState, useTransition } from "react"
-import { Blog } from "../../shared/interfaces"
-import { UserContext } from "../../shared/UserContext"
+'use client';
+import {
+  useCallback,
+  useContext,
+  useState,
+  useTransition,
+} from 'react';
+import { DateTime } from 'luxon';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { Blog } from '../../shared/interfaces';
+import { UserContext } from '../../shared/UserContext';
+import { deleteBlog } from '../../app/actions';
 import styles from './BlogView.module.scss';
-import { DateTime } from "luxon";
-import Link from "next/link";
-import { deleteBlog } from "../../app/actions";
-import { useRouter } from "next/navigation";
 
 interface BlowViewProps {
   blog: Blog;
@@ -27,11 +32,11 @@ export default function BlogView({ blog }: BlowViewProps) {
           router.push('/profile');
           router.refresh();
         } else {
-          setError(deleteResponse.message)
+          setError(deleteResponse.message);
         }
 
       } catch (error) {
-        setError((error as Error).message)
+        setError((error as Error).message);
       }
     });
   }, [blog._id, router]);
@@ -41,13 +46,13 @@ export default function BlogView({ blog }: BlowViewProps) {
       { user?._id &&
         <div className={styles.ownerActions}>
           <p>Owner actions: </p>
-          <Link className={styles.editLink} href='./edit'>Edit blog</Link>
+          <Link className={styles.editLink} href="./edit">Edit blog</Link>
           <button
             type="button"
             className={styles.deleteButton}
             onClick={handleDeleteBlog}
             disabled={isPending}
-            >Delete blog</button>
+          >Delete blog</button>
         </div>
       }
       { error && !isPending && <p className={styles.error}>{error}</p>}
@@ -57,5 +62,5 @@ export default function BlogView({ blog }: BlowViewProps) {
       { blog.createdAt !== blog.updatedAt && <p className={styles.date}>Updated on {DateTime.fromISO(blog.updatedAt).toFormat('dd/MM/yyyy hh:mm a')}</p> }
       <p className={styles.content}>{blog.content}</p>
     </div>
-  )
+  );
 }

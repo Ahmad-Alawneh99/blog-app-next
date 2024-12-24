@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { Blog } from "../../shared/interfaces";
-import styles from './BlogCard.module.scss';
+import Link from 'next/link';
 import { DateTime } from 'luxon';
+import { Blog } from '../../shared/interfaces';
+import styles from './BlogCard.module.scss';
 
 interface BlogCardProps {
   blog: Blog;
@@ -9,7 +9,7 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ blog, hideAuthor = false }: BlogCardProps) {
-  return(
+  return (
     <div className={styles.cardContainer}>
       <p className={styles.title}>{blog.title}</p>
       <p className={styles.summary}>{blog.content}</p>
@@ -18,5 +18,5 @@ export default function BlogCard({ blog, hideAuthor = false }: BlogCardProps) {
       <p className={styles.date}>Updated on {DateTime.fromISO(blog.updatedAt).toFormat('dd/MM/yyyy hh:mm a')}</p>
       <Link className={styles.readBlogLink} href={`/blog/${blog._id}`}>Read Full Blog</Link>
     </div>
-  )
+  );
 }

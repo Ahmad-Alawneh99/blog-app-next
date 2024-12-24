@@ -1,18 +1,18 @@
-'use client'
+'use client';
 import Link from 'next/link';
-import style from './GlobalHeader.module.scss';
 import { useRouter } from 'next/navigation';
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 import { UserContext } from '../../shared/UserContext';
+import style from './GlobalHeader.module.scss';
 
 export default function GlobalHeader() {
   const user = useContext(UserContext);
   const router = useRouter();
 
-  async function handleSignOut() {
+  const handleSignOut = useCallback(() => {
     document.cookie = 'blog_app_token=;path=/';
     router.refresh();
-  }
+  }, [router]);
 
   function LoggedInNavigationLinks() {
     return (
@@ -21,7 +21,7 @@ export default function GlobalHeader() {
         <span> / </span>
         <button className={style.signOutButton} type="button" onClick={handleSignOut}>Sign out</button>
       </div>
-    )
+    );
   }
 
   function LoggedOutNavigationLinks() {
@@ -31,13 +31,14 @@ export default function GlobalHeader() {
         <span> / </span>
         <Link className={style.navLink} href="/sign-up">Sign up</Link>
       </div>
-    )
+    );
   }
+
   return (
     <div className={style.headerContainer}>
       <p className={style.greetings}>{ user ? `Welcome back, ${user.name}` : 'Hello, Anonymous'}</p>
       <Link className={style.navLink} href="/"><h1 className={style.title}>Blogger</h1></Link>
       { user ? <LoggedInNavigationLinks /> : <LoggedOutNavigationLinks /> }
     </div>
-  )
+  );
 }

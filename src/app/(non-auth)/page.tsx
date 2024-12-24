@@ -1,6 +1,6 @@
-import styles from './page.module.scss';
-import BlogList from "../../components/BlogList/BlogList";
+import BlogList from '../../components/BlogList/BlogList';
 import Error from '../../components/Error/Error';
+import styles from './page.module.scss';
 
 export default async function HomePage() {
   const blogsResponse = await fetch(`${process.env.BACKEND_API}/blogs/public`);
@@ -8,7 +8,7 @@ export default async function HomePage() {
   const blogsResponseData = await blogsResponse.json();
 
   if (!blogsResponseData.success) {
-    return <Error title={`Oh no! ${blogsResponseData.status}!`} message={blogsResponseData.message}/>
+    return <Error title={`Oh no! ${blogsResponseData.status}!`} message={blogsResponseData.message} />;
   }
 
   return (

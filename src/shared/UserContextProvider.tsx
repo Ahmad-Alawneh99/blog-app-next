@@ -1,7 +1,7 @@
-'use client'
-import { ReactNode } from "react"
-import { User } from "./interfaces";
-import { UserContext } from "./UserContext";
+'use client';
+import { ReactNode } from 'react';
+import { User } from './interfaces';
+import { UserContext } from './UserContext';
 
 interface UserContextProviderProps {
   children: ReactNode,
@@ -13,5 +13,5 @@ export default function UserContextProvider({ children, user }: UserContextProvi
     <UserContext value={user}>
       {children}
     </UserContext>
-  )
+  );
 }

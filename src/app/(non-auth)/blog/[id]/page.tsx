@@ -1,5 +1,5 @@
-import BlogView from "../../../../components/BlogView/BlogView";
-import Error from "../../../../components/Error/Error";
+import BlogView from '../../../../components/BlogView/BlogView';
+import Error from '../../../../components/Error/Error';
 import styles from './page.module.scss';
 
 interface ViewBlogPageProps {
@@ -14,12 +14,12 @@ export default async function ViewBlogPage({ params }: ViewBlogPageProps) {
   const blogResponseData = await blogResponse.json();
 
   if (!blogResponseData.success) {
-    return <Error title={`Oh no! ${blogResponseData.status}!`} message={blogResponseData.message}/>
+    return <Error title={`Oh no! ${blogResponseData.status}!`} message={blogResponseData.message} />;
   }
 
   return (
     <div className={styles.pageContainer}>
       <BlogView blog={blogResponseData.blog} />
     </div>
-  )
+  );
 }

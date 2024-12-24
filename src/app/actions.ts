@@ -1,6 +1,6 @@
-'use server'
-import { cookies } from "next/headers";
-import { Blog, User } from "../shared/interfaces"
+'use server';
+import { cookies } from 'next/headers';
+import { Blog, User } from '../shared/interfaces';
 
 export async function registerUser(userData: Partial<User>) {
   const registerResponse = await fetch(`${process.env.BACKEND_API}/users/sign-up`, {

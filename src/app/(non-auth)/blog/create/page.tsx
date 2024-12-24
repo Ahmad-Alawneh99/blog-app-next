@@ -1,6 +1,6 @@
-import BlogForm from "../../../../components/BlogForm/BlogForm";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import BlogForm from '../../../../components/BlogForm/BlogForm';
 
 export default async function CreateBlogPage() {
   const cookieStore = await cookies();
@@ -10,5 +10,5 @@ export default async function CreateBlogPage() {
     redirect('/sign-in');
   }
 
-  return <BlogForm />
-};
+  return <BlogForm />;
+}

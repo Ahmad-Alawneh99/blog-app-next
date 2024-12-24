@@ -1,0 +1,50 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"eslint:recommended",
+		"next/core-web-vitals",
+		"plugin:import/errors",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"plugins": ["import", "@stylistic/js", "@stylistic/jsx", "import-newlines"],
+	"rules": {
+		"@stylistic/js/semi": "error",
+		"@stylistic/js/quotes": ["error", "single"],
+		"eqeqeq": "error",
+		"no-await-in-loop": "error",
+		"consistent-return": "error",
+		"curly": "error",
+		"import-newlines/enforce": ["error", { "items": 3 }],
+		"@stylistic/js/jsx-quotes": ["error", "prefer-double"],
+		"@stylistic/jsx/jsx-tag-spacing": ["error"],
+		"@stylistic/js/arrow-spacing": "error",
+		"@stylistic/js/no-multi-spaces": "error",
+		"@stylistic/js/eol-last": "error",
+		"@stylistic/js/comma-spacing": "error",
+		"@stylistic/js/comma-dangle": ["error", "always-multiline"],
+		"@stylistic/js/indent": ["error", 2],
+		"@stylistic/js/no-trailing-spaces": "error",
+		"@stylistic/js/padding-line-between-statements": ["error",
+			{ "blankLine": "always", "prev": "*", "next": "return" }
+		],
+		"@stylistic/js/no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0, "maxBOF": 0 }],
+		"import/order": "error",
+		"no-var": "error",
+		"@stylistic/js/object-curly-spacing": ["error", "always"],
+		"prefer-template": "error",
+		"@stylistic/js/keyword-spacing": ["error", { "before": true, "after": true }],
+		"@stylistic/js/block-spacing": "error",
+		"no-use-before-define": "error",
+		"@stylistic/js/space-infix-ops": ["error"],
+		"@typescript-eslint/no-non-null-assertion": ["error"],
+		"@typescript-eslint/prefer-optional-chain": "error",
+		"@typescript-eslint/no-explicit-any": "warn",
+		"@typescript-eslint/no-unnecessary-condition": "error",
+		"@typescript-eslint/require-await": ["error"],
+		"@typescript-eslint/no-floating-promises": "error"
+	},
+	"parserOptions": {
+		"project": "tsconfig.json"
+	}
+}

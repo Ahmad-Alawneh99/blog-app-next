@@ -1,5 +1,10 @@
 'use client';
-import { ChangeEvent, useCallback, useState, useTransition } from 'react';
+import {
+  ChangeEvent,
+  useCallback,
+  useState,
+  useTransition,
+} from 'react';
 import { useRouter } from 'next/navigation';
 import formStyles from '../sharedStyles/form.module.scss';
 import { Blog } from '../../shared/interfaces';
@@ -21,10 +26,10 @@ export default function BlogForm({ blogToUpdate }: BlogFormProps) {
   const handleFieldChange = useCallback((
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     fieldName: string) => {
-      setFormData((currentFormData) => ({
-        ...currentFormData,
-        [fieldName]: event.target.value,
-      }));
+    setFormData((currentFormData) => ({
+      ...currentFormData,
+      [fieldName]: event.target.value,
+    }));
   }, []);
 
   const isCreationValid = useCallback(() => {
@@ -59,7 +64,7 @@ export default function BlogForm({ blogToUpdate }: BlogFormProps) {
         let response;
 
         if (blogToUpdate) {
-          response = await updateBlog({...formData, _id: blogToUpdate._id});
+          response = await updateBlog({ ...formData, _id: blogToUpdate._id });
         } else {
           response = await createBlog(formData);
         }
@@ -113,4 +118,4 @@ export default function BlogForm({ blogToUpdate }: BlogFormProps) {
       {error.isError && !isPending && <p className={formStyles.formError}>{error.message}</p>}
     </form>
   );
-};
+}
