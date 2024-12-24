@@ -13,7 +13,7 @@ export default async function HomePage() {
 
   return (
     <div className={styles.pageContainer}>
-      <h2 className={styles.title}>Welcome to Blogger!</h2>
+      <h2 className={styles.title}>Welcome to Blogger!!</h2>
       <p className={styles.subtitle}>Browse blogs written by our trusted authors, enjoy a variety of topics and discussions, or create an account and start writing your own blogs</p>
       <BlogList blogs={blogsResponseData.blogs} />
     </div>
