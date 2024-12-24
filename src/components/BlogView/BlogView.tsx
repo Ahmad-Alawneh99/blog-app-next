@@ -43,10 +43,10 @@ export default function BlogView({ blog }: BlowViewProps) {
 
   return (
     <div className={styles.container}>
-      { user?._id &&
+      { user?._id && user._id === blog.owner._id &&
         <div className={styles.ownerActions}>
           <p>Owner actions: </p>
-          <Link className={styles.editLink} href="./edit">Edit blog</Link>
+          <Link className={styles.editLink} href={`./${blog._id}/edit`}>Edit blog</Link>
           <button
             type="button"
             className={styles.deleteButton}
